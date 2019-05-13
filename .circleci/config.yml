@@ -1,0 +1,65 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.11.0
+      - image: postgres:10.4
+        environment:
+          POSTGRES_USER: ubuntu
+          POSTGRES_DB: api-db
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Waiting for Postgres to be ready
+          command: |
+            for i in `seq 1 10`;
+            do
+              nc -z localhost 5432 && echo Success && exit 0
+              echo -n .
+              sleep 1
+            done
+            echo Failed waiting for Postgress && exit 1
+      - run:
+          name: Install API packages
+          command: |
+            cd api
+            npm i
+      - run:
+          name: Run API lint
+          command: |
+            cd api
+            npm run lint
+      - run:
+          name: Run API tests
+          environment:
+            NODE_ENV: test
+            DATABASE_URL: 'postgres://ubuntu@localhost:5432/api-db?sslmode=disable'
+          command: |
+            cd api
+            set -ou pipefail
+            npm run test-coverage
+      - setup_remote_docker
+      - run:
+          name: Run generator
+          environment:
+            NODE_ENV: ci
+          command: |
+            if [ "${GENERATOR_ENABLED}" == "true" ]; then
+              set -ou pipefail
+              npm i
+              npm run generator
+            fi
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      # - deploy:
+      #     command: |
+      #       if [ "${CIRCLE_BRANCH}" == "master" ]; then
+      #         bash ./.circleci/deploy-heroku.sh
+      #       fi

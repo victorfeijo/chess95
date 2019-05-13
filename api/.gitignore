@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.log
+db/local_database_volume
+.DS_Store
+coverage/
+Thumbs.db
