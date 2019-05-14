@@ -27,7 +27,7 @@ export const knightMovesIn = (squares, turns) => {
   }
 
   const possibleMoves = squares.reduce((acc, square) => (
-    union(acc, Array.from(knightMoves(square)))
+    union(acc, knightMoves(square))
   ), [])
 
   if (turns === 1) {
