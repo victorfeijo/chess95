@@ -21,13 +21,11 @@ const mapPositions = {
   H: 8,
 }
 
-export const validateSquare = square => (
-  where({
-    notation: isAlgebricNotation,
-    x: isBoardRange,
-    y: isBoardRange,
-  })(square)
-)
+export const validateSquare = where({
+  notation: isAlgebricNotation,
+  x: isBoardRange,
+  y: isBoardRange,
+})
 
 const makeSquare = square => (
   validateSquare(square) ? square : {}

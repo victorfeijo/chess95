@@ -7,14 +7,6 @@ import { makeSquareFromNotation } from '../../../../src/services/chess/square'
 
 describe('chess board', () => {
   describe('failure', () => {
-    it('empty array', () => {
-      const squares = []
-
-      const board = { squares }
-
-      expect(validateBoard(board)).toEqual(false)
-    })
-
     it('invalid squares', () => {
       const squares = ['B1', 'A1']
 

@@ -21,7 +21,7 @@ export const knightMoves = (square) => (
   }, [])
 )
 
-export const knightMovesIn = (squares, n) => {
+export const knightMovesIn = (squares, turns) => {
   if (!is(Array, squares)) {
     squares = [squares]
   }
@@ -30,9 +30,9 @@ export const knightMovesIn = (squares, n) => {
     union(acc, Array.from(knightMoves(square)))
   ), [])
 
-  if (n === 1) {
+  if (turns === 1) {
     return possibleMoves
   }
 
-  return knightMovesIn(possibleMoves, n-1)
+  return knightMovesIn(possibleMoves, turns-1)
 }
