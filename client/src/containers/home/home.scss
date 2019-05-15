@@ -1,5 +1,7 @@
 .home {
   text-align: center;
+  background: teal none repeat scroll 0% 0%;
+  height: 100vh;
 
   &-logo {
     animation: home-logo-spin infinite 20s linear;

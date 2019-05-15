@@ -1,20 +1,28 @@
 import * as React from 'react'
-import { Link } from 'react-router-dom'
+import { reset, themes, AppBar, Toolbar } from 'react95';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+
+import { Chess } from '../chess/Chess'
 
 import '../../config'
 import './home.scss'
 
-import { routePaths } from '../route-paths'
-import logo from './logo.svg'
+const ResetStyles = createGlobalStyle`
+  ${reset}
+`;
 
 export const Home = () => (
   <div className="home">
-    <header className="home-header">
-      <img src={logo} className="home-logo" alt="logo" />
-      <h1 className="home-title">Welcome to AEboilerplate!</h1>
-    </header>
-    <Link to={routePaths.private.root}>
-      <button>Open logged user</button>
-    </Link>
+    <ResetStyles />
+    <ThemeProvider theme={themes.default}>
+      <div>
+        <AppBar>
+          <Toolbar style={{ justifyContent: 'space-between' }}>
+            <h1>oi</h1>
+          </Toolbar>
+        </AppBar>
+        <Chess />
+      </div>
+    </ThemeProvider>
   </div>
 )
