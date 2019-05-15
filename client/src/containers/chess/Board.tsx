@@ -10,23 +10,28 @@ const horseImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Ch
 export class Board extends React.Component<any, any> {
   state = {
     knight: null,
+    turns: 2,
   }
 
   updateKnight = (position) => () => (
     this.setState({ knight: position })
   )
 
+  onChangeTurns = (turns) => (
+      this.setState({ turns })
+  )
+
   onClickPossibleMoves = () => {
     const { possibleMoves } = this.props
-    const { knight } = this.state
+    const { knight, turns } = this.state
 
     if (knight) {
-      possibleMoves(knight)
+      possibleMoves(knight, turns)
     }
   }
 
   render() {
-    const { knight } = this.state
+    const { knight, turns } = this.state
     const possibleMoves = this.props.knight.possibleMoves.map(move => move.notation)
     const rows = splitEvery(8, this.props.board.squares)
 
@@ -52,7 +57,14 @@ export class Board extends React.Component<any, any> {
         </Col>
         <Col sm={4}>
           <Fieldset>
-            <NumberField value={2} onChange={value => console.log(value)} />
+            <Row align="center" style={{ marginTop: '12px' }}>
+              <Col sm={4}>
+                <span>Turns:</span>
+              </Col>
+              <Col sm={8}>
+                <NumberField min={1} value={turns} onChange={this.onChangeTurns} />
+              </Col>
+            </Row>
             <Button fullWidth onClick={this.onClickPossibleMoves} style={{ marginTop: '40px' }}>
               Possible Moves
             </Button>
