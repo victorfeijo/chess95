@@ -10,7 +10,7 @@ import { me } from './me'
 const router = express.Router()
 
 router.use('/auth', asyncHandler(authenticate))
-router.use(chess)
+router.use('/chess', chess)
 router.use(me)
 router.use('/', asyncHandler(ensureAuthenticated), (_, res) => res.send('AUTHENTICATED').status(200))
 router.use(errorMiddleware)

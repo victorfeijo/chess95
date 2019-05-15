@@ -30,7 +30,7 @@ export const knightMovesIn = (squares, turns) => {
     union(acc, knightMoves(square))
   ), [])
 
-  if (turns === 1) {
+  if (turns <= 1) {
     return possibleMoves
   }
 

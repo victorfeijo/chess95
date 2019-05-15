@@ -1,13 +1,11 @@
 import express from 'express'
 
-import { makeBoard } from '../../services/chess/board'
+import { getBoard } from './board'
+import { knightMoves } from './knight'
 
 const router = express.Router()
 
-router.get('/chess', (req, res) => {
-  const board = makeBoard()
-
-  return res.status(200).send(board)
-})
+router.get('/board', getBoard)
+router.get('/knight', knightMoves)
 
 export const chess = router
