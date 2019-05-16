@@ -1,7 +1,9 @@
-import { includes, splitEvery } from 'ramda'
+import { includes, splitEvery, union } from 'ramda'
 import * as React from 'react'
 import { Col, Row } from 'react-grid-system';
 import { Button, Fieldset, NumberField } from 'react95';
+
+import { Hourglass } from './Hourglass'
 
 import './board.scss'
 
@@ -11,6 +13,7 @@ export class Board extends React.Component<any, any> {
   state = {
     knight: null,
     turns: 2,
+    errors: [],
   }
 
   updateKnight = (position) => () => (
@@ -18,21 +21,31 @@ export class Board extends React.Component<any, any> {
   )
 
   onChangeTurns = (turns) => (
-      this.setState({ turns })
+    this.setState({ turns })
   )
 
   onClickPossibleMoves = () => {
     const { possibleMoves } = this.props
     const { knight, turns } = this.state
 
+    let errors = ['You should choose a start position first.']
+
     if (knight) {
       possibleMoves(knight, turns)
+
+      errors = []
     }
+
+    this.setState({ errors })
   }
 
   render() {
     const { knight, turns } = this.state
-    const possibleMoves = this.props.knight.possibleMoves.map(move => move.notation)
+    const { possibleMoves, loading } = this.props.knight
+
+    const errors = union(this.props.knight.errors, this.state.errors)
+
+    const possibleNotations = possibleMoves.map(move => move.notation)
     const rows = splitEvery(8, this.props.board.squares)
 
     return (
@@ -44,7 +57,7 @@ export class Board extends React.Component<any, any> {
               <div className="board__row" key={`board__row-${rowIdx}`}>
                 {row.map(({ notation }, squareIdx) => (
                 <div
-                  className={`square ${includes(notation, possibleMoves) ? 'highlight' : ''}`}
+                  className={`square ${includes(notation, possibleNotations) ? 'highlight' : ''}`}
                   key={`square-${rowIdx}${squareIdx}`}
                   onClick={this.updateKnight(notation)}>
                     { notation === knight ? (
@@ -67,8 +80,23 @@ export class Board extends React.Component<any, any> {
                 <NumberField min={1} value={turns} onChange={this.onChangeTurns} />
               </Col>
             </Row>
-            <Button fullWidth onClick={this.onClickPossibleMoves} style={{ marginTop: '40px' }}>
-              Possible Moves
+            { errors.length > 0 && (<p className="errors">{errors.join(', ')}</p>)}
+            <Button
+              fullWidth
+              onClick={this.onClickPossibleMoves}
+              style={{ marginTop: '20px' }}
+              disabled={loading}
+              >
+              { loading ? (
+                <Row align="center">
+                  <Col>
+                    <Hourglass size={28} />
+                  </Col>
+                  <Col style={{ paddingLeft: 0 }}>Loading</Col>
+                </Row>
+              ) : (
+                <span>Possible Moves</span>
+              )}
             </Button>
           </Fieldset>
         </Col>
