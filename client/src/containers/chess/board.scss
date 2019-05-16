@@ -1,6 +1,6 @@
 .board {
   height: 65vw;
-  max-height: 70vh;
+  max-height: 75vh;
 }
 
 .board__row {
@@ -26,8 +26,8 @@
 }
 
 .square.highlight {
-  background-color: rgb(192, 219, 92) !important;
-  border: 2px solid rgb(128, 147, 57) !important;
+  background-color: rgba(45, 87, 44, 0.8) !important;
+  border: 2px solid rgba(45, 87, 44, 0.8) !important;
 }
 
 .board__row:nth-child(odd) {

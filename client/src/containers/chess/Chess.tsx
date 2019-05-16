@@ -23,7 +23,7 @@ export class ChessComponent extends React.Component<any, any> {
       <Container>
         <Row>
           <Col>
-            <div style={{ paddingTop: '80px' }}>
+            <div style={{ paddingTop: '60px' }}>
              <Window style={{ width: '100%' }}>
                 <WindowHeader>chess95.exe</WindowHeader>
                 <WindowContent>
