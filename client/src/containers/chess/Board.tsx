@@ -16,9 +16,11 @@ export class Board extends React.Component<any, any> {
     errors: [],
   }
 
-  updateKnight = (position) => () => (
+  updateKnight = (position) => () => {
     this.setState({ knight: position })
-  )
+
+    this.props.cleanKnight()
+  }
 
   onChangeTurns = (turns) => (
     this.setState({ turns })

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { handleActions } from 'redux-actions'
+import { createAction, handleActions } from 'redux-actions'
 import { createActionThunk } from 'redux-thunk-actions'
 
 import { getBoard as getBoardReq } from '../../api/chess/board'
@@ -43,6 +43,7 @@ export const initialKnightState = {
 }
 
 export const possibleMoves = createActionThunk('POSSIBLE_MOVES', getPossibleMoves)
+export const cleanKnight = createAction('CLEAN_KNIGHT')
 
 export const knight = handleActions(
   {
@@ -63,6 +64,7 @@ export const knight = handleActions(
       ...state,
       loading: false,
     }),
+    [cleanKnight]: () => initialKnightState,
   },
   initialKnightState,
 )

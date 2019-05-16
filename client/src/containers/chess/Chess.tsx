@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Window, WindowContent, WindowHeader } from 'react95';
 import { bindActionCreators } from 'redux'
 
-import { getBoard, possibleMoves } from '../../redux/ducks/chess'
+import { cleanKnight, getBoard, possibleMoves } from '../../redux/ducks/chess'
 import { Board } from './Board'
 import { Hourglass } from './Hourglass'
 
@@ -53,6 +53,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
+  cleanKnight: bindActionCreators(cleanKnight, dispatch),
   getBoard: bindActionCreators(getBoard, dispatch),
   possibleMoves: bindActionCreators(possibleMoves, dispatch),
 })
