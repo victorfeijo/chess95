@@ -1,6 +1,6 @@
 import { includes, splitEvery, union } from 'ramda'
 import * as React from 'react'
-import { Col, Row } from 'react-grid-system';
+import { Col, Row, Visible } from 'react-grid-system';
 import { Button, Fieldset, NumberField } from 'react95';
 
 import { Hourglass } from './Hourglass'
@@ -52,7 +52,7 @@ export class Board extends React.Component<any, any> {
 
     return (
       <Row>
-        <Col sm={8}>
+        <Col md={8}>
           <Fieldset>
             <div className="board">
               { !this.props.board.loading && rows.map((row, rowIdx) => (
@@ -72,7 +72,10 @@ export class Board extends React.Component<any, any> {
             </div>
           </Fieldset>
         </Col>
-        <Col sm={4}>
+        <Visible sm xs>
+          <div style={{ padding: '12px' }} />
+        </Visible>
+        <Col md={4}>
           <Fieldset>
             <Row align="center" style={{ marginTop: '12px' }}>
               <Col sm={4}>
