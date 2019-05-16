@@ -11,7 +11,14 @@
 
 .square {
   width: 12.5%;
-  background: rgb(240, 217, 181) none repeat scroll 0% 0%;
+  background-color: rgb(240, 217, 181);
+  border: 2px solid rgb(240, 217, 181);
+  box-sizing: border-box;
+}
+
+.square.horse {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Chess_tile_nd.svg/240px-Chess_tile_nd.svg.png");
+  background-size: cover;
 }
 
 .square:hover {
@@ -19,29 +26,45 @@
 }
 
 .square.highlight {
-  background: rgb(192, 219, 92) none repeat scroll 0% 0% !important;
-  border: 2px solid rgb(128, 147, 57);
-  box-sizing: border-box;
+  background-color: rgb(192, 219, 92) !important;
+  border: 2px solid rgb(128, 147, 57) !important;
 }
 
 .board__row:nth-child(odd) {
   .square:nth-child(even) {
-    background: rgb(181, 136, 99) none repeat scroll 0% 0%;
+    background-color: rgb(181, 136, 99);
+    border: 2px solid rgb(181, 136, 99);
   }
 }
 
 .board__row:nth-child(even) {
   .square:nth-child(odd) {
-    background: rgb(181, 136, 99) none repeat scroll 0% 0%;
+    background-color: rgb(181, 136, 99);
+    border: 2px solid rgb(181, 136, 99);
   }
-}
-
-.horse {
-  max-width: 100%;
-  max-height: 100%;
 }
 
 .errors {
   margin-top: 24px;
   color: red;
+}
+
+.board__label-top {
+  position: relative;
+  font-size: 12px;
+  top: -14px;
+}
+
+.board__label-left {
+  position: relative;
+  font-size: 12px;
+  top: 40%;
+  right: 60%;
+  padding-right: 6px;
+}
+
+.square.first {
+  .board__label-left {
+    top: 0;
+  }
 }
