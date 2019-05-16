@@ -1,6 +1,6 @@
 .board {
   height: 65vw;
-  max-height: 75vh;
+  max-height: 70vh;
 }
 
 .board__row {
@@ -67,4 +67,14 @@
   .board__label-left {
     top: 0;
   }
+}
+
+.window__title {
+  display: flex;
+  align-items: start;
+}
+
+.window__title-icon {
+  margin-top: 4px;
+  margin-right: 8px;
 }

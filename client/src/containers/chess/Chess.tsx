@@ -8,6 +8,7 @@ import { getBoard } from '../../redux/ducks/chess/board'
 import { clearKnight, possibleMoves } from '../../redux/ducks/chess/knight'
 import { Board } from './Board'
 import { Hourglass } from './Hourglass'
+import { Program } from './Program'
 
 import './board.scss'
 
@@ -25,7 +26,12 @@ export class ChessComponent extends React.Component<any, any> {
           <Col>
             <div style={{ paddingTop: '60px' }}>
              <Window style={{ width: '100%' }}>
-                <WindowHeader>chess95.exe</WindowHeader>
+               <WindowHeader>
+                <div className="window__title">
+                  <Program size={20} className="window__title-icon" />
+                  <span>chess95.exe</span>
+                </div>
+               </WindowHeader>
                 <WindowContent>
                   { loading ? (
                     <Row align="center" justify="center">
