@@ -6,6 +6,9 @@ import { bindActionCreators } from 'redux'
 
 import { getBoard, possibleMoves } from '../../redux/ducks/chess'
 import { Board } from './Board'
+import { Hourglass } from './Hourglass'
+
+import './board.scss'
 
 export class ChessComponent extends React.Component<any, any> {
   componentDidMount() {
@@ -13,6 +16,8 @@ export class ChessComponent extends React.Component<any, any> {
   }
 
   render() {
+    const { loading, errors } = this.props.board
+
     return (
       <Container>
         <Row>
@@ -21,8 +26,18 @@ export class ChessComponent extends React.Component<any, any> {
              <Window style={{ width: '100%' }}>
                 <WindowHeader>chess95.exe</WindowHeader>
                 <WindowContent>
-                  <Board {...this.props} />
-                </WindowContent>
+                  { loading ? (
+                    <Row align="center" justify="center">
+                      <Col sm={1}>
+                        <Hourglass size={28} />
+                      </Col>
+                      <Col sm={1} style={{ paddingLeft: 0 }}>Loading</Col>
+                    </Row>
+                  ) : (
+                    <Board {...this.props} />
+                  )}
+                  { errors.length > 0 && (<p className="errors">{errors.join(', ')}</p>)}
+                  </WindowContent>
               </Window>
             </div>
           </Col>
