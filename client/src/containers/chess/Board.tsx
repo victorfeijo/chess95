@@ -38,22 +38,24 @@ export class Board extends React.Component<any, any> {
     return (
       <Row>
         <Col sm={8}>
-          <div className="board">
-            { !this.props.board.loading && rows.map((row, rowIdx) => (
-            <div className="board__row" key={`board__row-${rowIdx}`}>
-              {row.map(({ notation }, squareIdx) => (
-              <div
-                className={`square ${includes(notation, possibleMoves) ? 'highlight' : ''}`}
-                key={`square-${rowIdx}${squareIdx}`}
-                onClick={this.updateKnight(notation)}>
-                  { notation === knight ? (
-                    <img className="horse" src={horseImage} />
-                  ) : '' }
-                </div>
-              ))}
+          <Fieldset>
+            <div className="board">
+              { !this.props.board.loading && rows.map((row, rowIdx) => (
+              <div className="board__row" key={`board__row-${rowIdx}`}>
+                {row.map(({ notation }, squareIdx) => (
+                <div
+                  className={`square ${includes(notation, possibleMoves) ? 'highlight' : ''}`}
+                  key={`square-${rowIdx}${squareIdx}`}
+                  onClick={this.updateKnight(notation)}>
+                    { notation === knight ? (
+                      <img className="horse" src={horseImage} />
+                    ) : '' }
+                  </div>
+                ))}
+              </div>
+              )) }
             </div>
-            )) }
-          </div>
+          </Fieldset>
         </Col>
         <Col sm={4}>
           <Fieldset>
