@@ -31,7 +31,7 @@ describe('knight moves', () => {
 
       const { status, body } = await apiRequest.get('/api/chess/knight').query(params)
 
-      const notations = body.possibleMoves.map(move => move.notation)
+      const notations = body.map(move => move.notation)
 
       expect(status).toEqual(200)
       expect(notations).toEqual(['E3', 'E1', 'D4', 'B4', 'A3', 'A1', 'D2', 'C5', 'C1', 'A5'])
@@ -42,7 +42,7 @@ describe('knight moves', () => {
 
       const { status, body } = await apiRequest.get('/api/chess/knight').query(params)
 
-      const notations = body.possibleMoves.map(move => move.notation)
+      const notations = body.map(move => move.notation)
 
       expect(status).toEqual(200)
       expect(notations).toEqual(['C2', 'B3'])

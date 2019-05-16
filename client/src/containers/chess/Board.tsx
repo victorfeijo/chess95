@@ -19,7 +19,7 @@ export class Board extends React.Component<any, any> {
   updateKnight = (position) => () => {
     this.setState({ knight: position })
 
-    this.props.cleanKnight()
+    this.props.clearKnight()
   }
 
   onChangeTurns = (turns) => (

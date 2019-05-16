@@ -14,5 +14,5 @@ export const knightMoves = (req, res) => {
   const square = makeSquareFromNotation(position)
   const possibleMoves = knightMovesIn(square, turns || 2)
 
-  return res.status(200).send({ possibleMoves })
+  return res.status(200).send(possibleMoves)
 }
