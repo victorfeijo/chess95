@@ -20,7 +20,7 @@ export class BoardActions extends React.Component<any, any> {
     const { knightPosition, possibleMoves } = this.props
     const { turns } = this.state
 
-    let errors = ['You should choose a start position first.']
+    let errors = ['You must choose a initial position.']
 
     if (knightPosition) {
       possibleMoves(knightPosition, turns)
