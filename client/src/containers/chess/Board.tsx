@@ -64,29 +64,31 @@ export class Board extends React.Component<any, any> {
 
     return (
       <Row>
-        <Col md={8}>
+        <Col md={7}>
           <Fieldset>
-            <div className="board">
-              { !this.props.board.loading && rows.map((row, rowIdx) => (
-              <div className="board__row" key={`board__row-${rowIdx}`}>
-                {row.map(({ notation }, squareIdx) => (
-                  <div
-                    className={this.squareClasses(notation, possibleNotations)}
-                    key={`square-${rowIdx}${squareIdx}`}
-                    onClick={this.updateKnight(notation)}>
-                    { (displayGrid && rowIdx === 0) && (<div className="board__label-top">{notation[0]}</div>)}
-                    { (displayGrid && squareIdx === 0) && (<div className="board__label-left">{notation[1]}</div>)}
-                  </div>
-                ))}
+            <div className="box">
+              <div className="board">
+                { !this.props.board.loading && rows.map((row, rowIdx) => (
+                <div className="board__row" key={`board__row-${rowIdx}`}>
+                  {row.map(({ notation }, squareIdx) => (
+                    <div
+                      className={this.squareClasses(notation, possibleNotations)}
+                      key={`square-${rowIdx}${squareIdx}`}
+                      onClick={this.updateKnight(notation)}>
+                      { (displayGrid && rowIdx === 0) && (<div className="board__label-top">{notation[0]}</div>)}
+                      { (displayGrid && squareIdx === 0) && (<div className="board__label-left">{notation[1]}</div>)}
+                    </div>
+                  ))}
+                </div>
+                )) }
               </div>
-              )) }
             </div>
           </Fieldset>
         </Col>
         <Visible sm xs>
           <div style={{ padding: '12px' }} />
         </Visible>
-        <Col md={4}>
+        <Col md={5}>
           <Fieldset>
             <Row>
               <Col>
