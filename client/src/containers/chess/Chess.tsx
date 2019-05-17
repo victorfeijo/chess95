@@ -5,12 +5,12 @@ import { Window, WindowContent, WindowHeader } from 'react95';
 import { bindActionCreators } from 'redux'
 
 import { Icon } from '../../components/Icon'
+import { Board } from '../../components/chess//Board'
 import { getBoard } from '../../redux/ducks/chess/board'
 import { clearKnight, possibleMoves } from '../../redux/ducks/chess/knight'
 import * as selectors from '../../selectors/chess'
-import { Board } from './Board'
 
-import './board.scss'
+import './chess.scss'
 
 export class ChessComponent extends React.Component<any, any> {
   componentDidMount() {

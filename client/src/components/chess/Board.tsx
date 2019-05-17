@@ -2,18 +2,16 @@ import classNames from 'classnames'
 import { includes } from 'ramda'
 import * as React from 'react'
 import { Col, Row, Visible } from 'react-grid-system';
-import { Button, Checkbox, Fieldset, NumberField } from 'react95';
+import { Fieldset } from 'react95';
 
-import { Icon } from '../../components/Icon'
+import { BoardActions } from './BoardActions'
 
 import './board.scss'
 
 export class Board extends React.Component<any, any> {
   state = {
-    knight: null,
-    turns: 2,
     displayGrid: false,
-    errors: [],
+    knight: null,
   }
 
   updateKnight = (position) => () => {
@@ -22,26 +20,7 @@ export class Board extends React.Component<any, any> {
     this.props.clearKnight()
   }
 
-  onChangeTurns = (turns) => (
-    this.setState({ turns })
-  )
-
-  onClickPossibleMoves = () => {
-    const { possibleMoves } = this.props
-    const { knight, turns } = this.state
-
-    let errors = ['You should choose a start position first.']
-
-    if (knight) {
-      possibleMoves(knight, turns)
-
-      errors = []
-    }
-
-    this.setState({ errors })
-  }
-
-  onChangeCheckbox = () => (
+  onChangeDisplayGrid = () => (
     this.setState((prevState) => ({...prevState, displayGrid: !prevState.displayGrid }))
   )
 
@@ -54,11 +33,8 @@ export class Board extends React.Component<any, any> {
   )
 
   render() {
-    const { turns, displayGrid } = this.state
-    const { loading } = this.props.knight
+    const { knight, displayGrid } = this.state
     const { boardRows, possibleNotations } = this.props
-
-    const errors = [...this.props.knight.errors, ...this.state.errors]
 
     return (
       <Row>
@@ -91,43 +67,12 @@ export class Board extends React.Component<any, any> {
           <div style={{ padding: '12px' }} />
         </Visible>
         <Col md={5}>
-          <Fieldset>
-            <Row>
-              <Col>
-                <Checkbox
-                  checked={displayGrid}
-                  onChange={this.onChangeCheckbox}
-                  label="Display Grid"
-                />
-              </Col>
-            </Row>
-            <Row align="center" style={{ marginTop: '12px' }}>
-              <Col sm={4}>
-                <span>Turns:</span>
-              </Col>
-              <Col sm={8}>
-                <NumberField min={1} value={turns} onChange={this.onChangeTurns} />
-              </Col>
-            </Row>
-            { errors.length > 0 && (<p className="errors">{errors.join(', ')}</p>)}
-            <Button
-              fullWidth
-              onClick={this.onClickPossibleMoves}
-              style={{ marginTop: '20px' }}
-              disabled={loading}
-              >
-              { loading ? (
-                <Row align="center">
-                  <Col>
-                    <Icon name="hourglass" size={28} />
-                  </Col>
-                  <Col style={{ paddingLeft: 0 }}>Loading</Col>
-                </Row>
-              ) : (
-                <span>Possible Moves</span>
-              )}
-            </Button>
-          </Fieldset>
+          <BoardActions
+            knightPosition={knight}
+            displayGrid={displayGrid}
+            onChangeDisplayGrid={this.onChangeDisplayGrid}
+            {...this.props}
+          />
         </Col>
       </Row>
     )

@@ -2,9 +2,9 @@ import * as React from 'react'
 
 import { AppBar, Button, Divider, List, ListItem, Toolbar } from 'react95';
 
-import { Icon } from '../../components/Icon'
+import { Icon } from './Icon'
 
-import './home.scss'
+import './windows_bar.scss'
 
 export class WindowsBar extends React.Component<any, any> {
   state = {

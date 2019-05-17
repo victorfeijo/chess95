@@ -2,8 +2,8 @@ import * as React from 'react'
 import { reset, themes } from 'react95';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
+import { WindowsBar } from '../../components/WindowsBar'
 import { Chess } from '../chess/Chess'
-import { WindowsBar } from './WindowsBar'
 
 import '../../config'
 import './home.scss'
