@@ -26,13 +26,16 @@
 .square {
   width: 12.5%;
   background-color: rgb(240, 217, 181);
-  border: 2px solid rgb(240, 217, 181);
-  box-sizing: border-box;
+
+  transition: background-color 0.3s ease-in-out;
 }
 
 .square.horse {
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Chess_tile_nd.svg/240px-Chess_tile_nd.svg.png");
   background-size: cover;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  border: 3px solid transparent;
 }
 
 .square:hover {
@@ -41,20 +44,21 @@
 
 .square.highlight {
   background-color: rgba(45, 87, 44, 0.8) !important;
-  border: 2px solid rgba(45, 87, 44, 0.8) !important;
+
+  transition: background-color 0.3s ease-in-out;
 }
 
 .board__row:nth-child(odd) {
   .square:nth-child(even) {
     background-color: rgb(181, 136, 99);
-    border: 2px solid rgb(181, 136, 99);
+    transition: background-color 0.3s ease-in-out;
   }
 }
 
 .board__row:nth-child(even) {
   .square:nth-child(odd) {
     background-color: rgb(181, 136, 99);
-    border: 2px solid rgb(181, 136, 99);
+    transition: background-color 0.3s ease-in-out;
   }
 }
 
