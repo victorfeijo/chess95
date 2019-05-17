@@ -4,7 +4,7 @@ import * as React from 'react'
 import { Col, Row, Visible } from 'react-grid-system';
 import { Button, Checkbox, Fieldset, NumberField } from 'react95';
 
-import { Hourglass } from './Hourglass'
+import { Icon } from '../../components/Icon'
 
 import './board.scss'
 
@@ -117,7 +117,7 @@ export class Board extends React.Component<any, any> {
               { loading ? (
                 <Row align="center">
                   <Col>
-                    <Hourglass size={28} />
+                    <Icon name="hourglass" size={28} />
                   </Col>
                   <Col style={{ paddingLeft: 0 }}>Loading</Col>
                 </Row>

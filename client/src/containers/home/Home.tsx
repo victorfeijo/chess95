@@ -1,8 +1,9 @@
 import * as React from 'react'
-import { reset, themes, AppBar, Toolbar } from 'react95';
+import { reset, themes } from 'react95';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 import { Chess } from '../chess/Chess'
+import { WindowsBar } from './WindowsBar'
 
 import '../../config'
 import './home.scss'
@@ -16,11 +17,7 @@ export const Home = () => (
     <ResetStyles />
     <ThemeProvider theme={themes.default}>
       <div>
-        <AppBar>
-          <Toolbar style={{ justifyContent: 'space-between' }}>
-            <h1>oi</h1>
-          </Toolbar>
-        </AppBar>
+        <WindowsBar />
         <Chess />
       </div>
     </ThemeProvider>

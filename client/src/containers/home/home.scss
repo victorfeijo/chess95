@@ -28,11 +28,12 @@
   }
 }
 
-@keyframes home-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.icon {
+  margin-top: 6px;
+  margin-right: 6px;
+}
+
+.icon__box {
+  display: flex;
+  align-items: initial;
 }

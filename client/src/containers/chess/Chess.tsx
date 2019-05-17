@@ -4,11 +4,10 @@ import { connect } from 'react-redux'
 import { Window, WindowContent, WindowHeader } from 'react95';
 import { bindActionCreators } from 'redux'
 
+import { Icon } from '../../components/Icon'
 import { getBoard } from '../../redux/ducks/chess/board'
 import { clearKnight, possibleMoves } from '../../redux/ducks/chess/knight'
 import { Board } from './Board'
-import { Hourglass } from './Hourglass'
-import { Program } from './Program'
 
 import './board.scss'
 
@@ -24,11 +23,11 @@ export class ChessComponent extends React.Component<any, any> {
       <Container>
         <Row>
           <Col>
-            <div style={{ paddingTop: '60px' }}>
+            <div style={{ marginTop: '80px' }}>
              <Window style={{ width: '100%' }}>
                <WindowHeader>
                 <div className="window__title">
-                  <Program size={20} className="window__title-icon" />
+                  <Icon name="program" size={20} className="window__title-icon" />
                   <span>chess95.exe</span>
                 </div>
                </WindowHeader>
@@ -36,7 +35,7 @@ export class ChessComponent extends React.Component<any, any> {
                   { loading ? (
                     <Row align="center" justify="center">
                       <Col sm={1}>
-                        <Hourglass size={28} />
+                        <Icon name="hourglass" size={28} />
                       </Col>
                       <Col sm={1} style={{ paddingLeft: 0 }}>Loading</Col>
                     </Row>
