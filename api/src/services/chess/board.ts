@@ -1,6 +1,10 @@
 import { all, flatten, range, reverse, where } from 'ramda'
 
-import { makeSquareFromPos, validateSquare } from './square'
+import { makeSquareFromPos, validateSquare, Square } from './square'
+
+export interface Board {
+  squares: Array<Square>;
+}
 
 export const validateBoard = where({
   squares: all(validateSquare)
@@ -11,7 +15,7 @@ export const makeBoard = () => {
 
   // Creates with correct board order
   const squares = flatten(
-    reverse(boardRange).map(x => boardRange.map(y => makeSquareFromPos(y, x)))
+    boardRange.map(x => boardRange.map(y => makeSquareFromPos(y, x)))
   )
 
   return validateBoard({ squares }) ? { squares } : {}

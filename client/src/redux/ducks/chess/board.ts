@@ -24,7 +24,7 @@ export const board = handleActions(
     [getBoard.FAILED]: (state, { payload }) => ({
       ...state,
       loading: false,
-      errors: payload.errors,
+      errors: (payload.errors || []),
     }),
     [getBoard.ENDED]: (state) => ({
       ...state,

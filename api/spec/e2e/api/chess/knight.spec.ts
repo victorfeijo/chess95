@@ -34,7 +34,7 @@ describe('knight moves', () => {
       const notations = body.map(move => move.notation)
 
       expect(status).toEqual(200)
-      expect(notations).toEqual(['E3', 'E1', 'D4', 'B4', 'A3', 'A1', 'D2', 'C5', 'C1', 'A5'])
+      expect(notations).toEqual(['E1', 'E3', 'D4', 'B4', 'A1', 'A3', 'D2', 'C1', 'C5', 'A5'])
     })
 
     it('return all possible moves from provided position in 1 turn', async () => {

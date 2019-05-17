@@ -21,28 +21,36 @@ const mapPositions = {
   H: 8,
 }
 
+const mapBoardY = (y: number) => (Math.abs(y - 8) + 1)
+
+export interface Square {
+  notation: string;
+  x: number;
+  y: number;
+}
+
 export const validateSquare = where({
   notation: isAlgebricNotation,
   x: isBoardRange,
   y: isBoardRange,
 })
 
-const makeSquare = square => (
+const makeSquare = (square: Square) => (
   validateSquare(square) ? square : {}
 )
 
-export const makeSquareFromPos = (x, y) => (
+export const makeSquareFromPos = (x: number, y: number) => (
   makeSquare({
-    notation: `${mapPositions[x.toString()]}${y}`,
+    notation: `${mapPositions[x.toString()]}${mapBoardY(y)}`,
     x,
     y,
   })
 )
 
-export const makeSquareFromNotation = (notation) => (
+export const makeSquareFromNotation = (notation: string) => (
   makeSquare({
     notation,
     x: mapPositions[notation[0]],
-    y: parseInt(notation[1]),
+    y: mapBoardY(parseInt(notation[1])),
   })
 )

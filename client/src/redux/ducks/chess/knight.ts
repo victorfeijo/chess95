@@ -25,7 +25,7 @@ export const knight = handleActions(
     [possibleMoves.FAILED]: (state, { payload }) => ({
       ...state,
       loading: false,
-      errors: payload.errors,
+      errors: (payload.errors || []),
     }),
     [possibleMoves.ENDED]: (state) => ({
       ...state,

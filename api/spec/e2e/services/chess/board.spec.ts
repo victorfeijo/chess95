@@ -33,7 +33,7 @@ describe('chess board', () => {
 
       expect(board.squares.length).toEqual(64)
       expect(board.squares[0]).toEqual({
-        notation: 'A1',
+        notation: 'A8',
         x: 1,
         y: 1,
       })

@@ -56,7 +56,7 @@ describe('chess square', () => {
       const square = {
         notation: 'D3',
         x: 4,
-        y: 3,
+        y: 5,
       }
 
       expect(validateSquare(square)).toEqual(true)
@@ -67,7 +67,7 @@ describe('chess square', () => {
       const y = 8
 
       expect(makeSquareFromPos(7, 8)).toEqual({
-        notation: 'G8',
+        notation: 'G1',
         x,
         y,
       })
@@ -79,7 +79,7 @@ describe('chess square', () => {
       expect(makeSquareFromNotation(notation)).toEqual({
         notation,
         x: 3,
-        y: 4,
+        y: 5,
       })
     })
   })
