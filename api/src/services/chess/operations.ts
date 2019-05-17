@@ -34,5 +34,5 @@ export const knightMovesIn = (squares, turns) => {
     return possibleMoves
   }
 
-  return knightMovesIn(possibleMoves, turns-1)
+  return knightMovesIn(possibleMoves, turns - 1)
 }
