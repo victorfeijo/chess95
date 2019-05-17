@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { includes, splitEvery, union } from 'ramda'
+import { includes } from 'ramda'
 import * as React from 'react'
 import { Col, Row, Visible } from 'react-grid-system';
 import { Button, Checkbox, Fieldset, NumberField } from 'react95';
@@ -55,12 +55,10 @@ export class Board extends React.Component<any, any> {
 
   render() {
     const { turns, displayGrid } = this.state
-    const { possibleMoves, loading } = this.props.knight
+    const { loading } = this.props.knight
+    const { boardRows, possibleNotations } = this.props
 
-    const errors = union(this.props.knight.errors, this.state.errors)
-
-    const possibleNotations = possibleMoves.map(move => move.notation)
-    const rows = splitEvery(8, this.props.board.squares)
+    const errors = [...this.props.knight.errors, ...this.state.errors]
 
     return (
       <Row>
@@ -68,15 +66,19 @@ export class Board extends React.Component<any, any> {
           <Fieldset>
             <div className="box">
               <div className="board">
-                { !this.props.board.loading && rows.map((row, rowIdx) => (
+                { !this.props.board.loading && boardRows.map((row, rowIdx) => (
                 <div className="board__row" key={`board__row-${rowIdx}`}>
                   {row.map(({ notation }, squareIdx) => (
                     <div
                       className={this.squareClasses(notation, possibleNotations)}
                       key={`square-${rowIdx}${squareIdx}`}
                       onClick={this.updateKnight(notation)}>
-                      { (displayGrid && rowIdx === 0) && (<div className="board__label-top">{notation[0]}</div>)}
-                      { (displayGrid && squareIdx === 0) && (<div className="board__label-left">{notation[1]}</div>)}
+                      { (displayGrid && rowIdx === 0) && (
+                        <div className="board__label-top">{notation[0]}</div>
+                      )}
+                      { (displayGrid && squareIdx === 0) && (
+                        <div className="board__label-left">{notation[1]}</div>
+                      )}
                     </div>
                   ))}
                 </div>

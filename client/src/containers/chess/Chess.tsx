@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux'
 import { Icon } from '../../components/Icon'
 import { getBoard } from '../../redux/ducks/chess/board'
 import { clearKnight, possibleMoves } from '../../redux/ducks/chess/knight'
+import * as selectors from '../../selectors/chess'
 import { Board } from './Board'
 
 import './board.scss'
@@ -54,8 +55,10 @@ export class ChessComponent extends React.Component<any, any> {
 }
 
 const mapStateToProps = (state) => ({
-  board: state.chess.board,
-  knight: state.chess.knight,
+  board: selectors.selectBoard(state),
+  boardRows: selectors.selectBoardRows(state),
+  knight: selectors.selectKnight(state),
+  possibleNotations: selectors.selectPossibleNotations(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
