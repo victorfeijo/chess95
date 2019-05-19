@@ -19,7 +19,7 @@ Here's a list describing each technology used by each application:
   - [Axios](https://github.com/axios/axios) for the HTTP client.
   - [Redux](https://github.com/reduxjs/redux) using the [ducks modular approach](https://github.com/erikras/ducks-modular-redux) for state management.
   - [React Router 4](https://reacttraining.com/react-router/core/guides/philosophy) for routing. \* [Jest](https://jestjs.io/) and [Enzyme](https://github.com/airbnb/enzyme) for testing.
-  - [Reselect](https://github.com/reduxjs/reselect) is simple redux state selector library. Selectors can compute derived data (allowing store to be minimal as possible), efficient using function memoize and composable (a selector can use other selector as a input). Selectors tend to be easy to test because they are pure functions.
+  - [Reselect](https://github.com/reduxjs/reselect) as a simple redux state selector library. Selectors can compute derived data (allowing store to be minimal as possible), efficient using function memoize and composable (a selector can use other selector as a input). Selectors tend to be easy to test because they are pure functions.
   - [React95](https://github.com/arturbier/React95) for UI components inspired by Windows 95 styles.
 - API
   - [Express](https://expressjs.com/) for routing.
@@ -39,6 +39,7 @@ All code related to Chess 95 application is scoped in a `/chess` folder. Here's 
   - Containers: `client/src/containers/chess`
   - Redux: `client/src/redux/ducks/chess`
   - Selectors: `client/src/selectors/chess.ts`
+  - Api calls: `client/src/api/chess`
 
 ## Contributing
 
