@@ -1,50 +1,50 @@
-# AEboilerplate
+# Chess 95 ♟
 
-[![aeboilerplate license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/agencyenterprise/aeboilerplate/blob/master/LICENCE.md)
-[![build](https://circleci.com/gh/agencyenterprise/aeboilerplate.svg?style=shield&circle-token=3d749403becdba1c3b622fb512abad50192930b6)](https://circleci.com/gh/agencyenterprise/aeboilerplate)
-[![npm version](https://badge.fury.io/js/aeboilerplate.svg)](https://badge.fury.io/js/aeboilerplate)
+[![chess95 license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/victorfeijo/chess95/blob/master/LICENCE.md)
 
-A full-stack React/Node/Typescript web project starter that focuses primarily on ease-of-use and simplicity.
+Chess 95 is web application that allows the user to simulate knight movements in N turns. The UI was inspired by windows 95 components which makes a nostalgic feeling when playing with it.
 
-AEboilerplate is an _opinionated_ boilerplate that includes independent client and API applications packaged into one repository. It is ready to be run and deployed out-of-the-box and comes preconfigured with state management, continuous integration, testing, code-formatting, and much more.
+The application was bootstraped with AEboilerplate, a full-stack React/Redux/Node/Typescript web project starter that made development easier, clean and customizable. In addition, other important aspects like deployment and testing were ready to use out of the box.
 
-- **Easy to setup**: Initial setup is as simple as running a single command.
+![Screenshot](./screenshot.png)
 
-- **Opinionated**: We spent a lot of time thinking about which technologies would allow us to build applications out more quickly with guardrails in place to keep our codebase tidy and maintainable.
+## Project Structure
 
-- **Clean**: We try to follow the KISS (Keep it simple, stupid) pattern. So we built this boilerplate adding what every robust application needs and more.
+Most of the architecture was inherited from AEboilerplate with a few additions. The application is divided in two independent applications. The **api**, which represents the back-end built on top of NodeJs, Express and PostgreSQL database. And the **client**, a front-end application generated using `create-react-app`.
 
-- **Customizable**: Configurations are localized for easier management.
+Here's a list describing each technology used by each application:
 
-## Motivation
+- Client
+  - Generated using [create-react-app](https://github.com/facebook/create-react-app) with [Typescript](https://www.typescriptlang.org/docs/home.html) and [SASS](https://sass-lang.com/).
+  - [Axios](https://github.com/axios/axios) for the HTTP client.
+  - [Redux](https://github.com/reduxjs/redux) using the [ducks modular approach](https://github.com/erikras/ducks-modular-redux) for state management.
+  - [React Router 4](https://reacttraining.com/react-router/core/guides/philosophy) for routing. \* [Jest](https://jestjs.io/) and [Enzyme](https://github.com/airbnb/enzyme) for testing.
+  - [Reselect](https://github.com/reduxjs/reselect) simple redux state selector library. Selectors can compute derived data (allowing store to be minimal as possible), efficient using function memoize and composable (a selector can use other selector as a input). Selectors tend to be easy to test because they are pure functions.
+  - [React95](https://github.com/arturbier/React95) for UI components inspired by Windows 95 styles.
+- API
+  - [Express](https://expressjs.com/) for routing.
+  - [Postgres](https://www.postgresql.org/about/) database and [Knex](https://knexjs.org/) for query building. [Migrations](https://knexjs.org/#Migrations-CLI) and [seeds](https://knexjs.org/#Seeds-CLI) are included. \* [Jest](https://jestjs.io/) for testing.
+  - [Ramda](https://ramdajs.com/) javascript library designed for a functional programming style.
+- [Docker](https://docs.docker.com) and [docker compose](https://docs.docker.com/compose/) for running applications locally.
+- [prettier](https://github.com/prettier/prettier), [editorconfig](https://editorconfig.org/), and [tslint](https://palantir.github.io/tslint/) for consistent code formatting.
+- [Github templates](https://blog.github.com/2016-02-17-issue-and-pull-request-templates/) for Github pull request templates.
 
-At [AE Studio](https://ae.studio/), we are constantly working on new projects and find ourselves spending time setting up applications that could be better used to build out features. To improve our process, we decided to take our favorite technologies and bundle them into a boilerplate to help kickstart our projects faster.
+All code related to Chess 95 application is scoped in a `/chess` folder. Here's a list covering it:
 
-## Getting Started
-
-### You will need to have these installed first
-
-- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- [Node 8+](https://nodejs.org/en/)
-- [Docker 18+](https://docs.docker.com/install/)
-- [Docker Compose 1.21+](https://docs.docker.com/compose/install/)
-
-### Generate a new project with a simple command
-
-```bash
-npx aeboilerplate PROJECT_NAME
-```
-
-## Documentation
-
-Please check out our full [boilerplate documentation](https://github.com/agencyenterprise/aeboilerplate/blob/master/docs/documentation.md).
+- Api
+- Services: `api/src/services/chess`
+- Endpoints: `api/src/api/chess`
+- Client
+- Components: `client/src/components/chess`
+- Containers: `client/src/containers/chess`
+- Redux: `client/src/redux/ducks/chess`
+- Selectors: `client/src/selectors/chess.ts`
 
 ## Contributing
 
-We, at [AE Studio](https://ae.studio/), believe in the value of having a [growth mindset](http://www.aaronsw.com/weblog/dweck). In sharing our work, we hope to improve upon our own practices with the help of the wider community as there's always room for improvement. Likewise, we hope that our work brings value to you.
+Disclaimer to AEBoilerplate docs and link to CONTRIBUTING.md
 
-As we continue to maintain this project, we would love to hear from you. If you have any ideas, please [open an issue](https://github.com/agencyenterprise/aeboilerplate/issues/new). Or, if you would like to contribute, pull requests are warmly welcomed.
+## Futher working
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/agencyenterprise/aeboilerplate/blob/master/LICENCE.md) file for details
+[] Setup circle-ci
+[] Add more typescript features to components and functions
