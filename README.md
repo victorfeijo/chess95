@@ -10,7 +10,7 @@ The application was bootstraped with [AEboilerplate](https://github.com/agencyen
 
 ## Project Structure
 
-Most of the architecture was inherited from [AEboilerplate](https://github.com/agencyenterprise/aeboilerplate/blob/master/docs/documentation.md) with a few additions. The application is divided in two independent applications. The **api**, which represents the back-end built on top of NodeJs, Express and PostgreSQL database. And the **client**, a front-end application generated using `create-react-app`.
+Most of the architecture was inherited from [AEboilerplate](https://github.com/agencyenterprise/aeboilerplate/blob/master/docs/documentation.md) with a few additions. The application is divided in two independent applications. The **api**, which represents the back-end built on top of NodeJs, Express and PostgreSQL database, and the **client** - a front-end application generated using `create-react-app`.
 
 Here's a list describing each technology used by each application:
 
@@ -51,7 +51,7 @@ As this project was bootstraped by [AEBoilerplate](https://github.com/agencyente
 
 ## Futher work
 
-You can find a simple kanban board at the "Projects" section that shows done tasks and futher work that I consider important to be done. Here's the [link](https://github.com/victorfeijo/chess95/projects/1) to the board, feel free to add more tasks and open a issue so we can discuss more about.
+You can find a simple kanban board at the "Projects" tabs shows done tasks and futher work that I consider important to be done. Here's the [link](https://github.com/victorfeijo/chess95/projects/1) to the board, feel free to add more tasks and open an issue so we can discuss more about.
 
 ## License
 
