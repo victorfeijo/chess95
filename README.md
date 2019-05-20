@@ -4,13 +4,13 @@
 
 Chess 95 is web application that allows the user to simulate knight movements in N turns. The UI was inspired by windows 95 components which makes a nostalgic feeling when playing with it.
 
-The application was bootstraped with AEboilerplate, a full-stack React/Redux/Node/Typescript web project starter that made development easier, clean and customizable. In addition, other important aspects like deployment and testing were ready to use out of the box.
+The application was bootstraped with [AEboilerplate](https://github.com/agencyenterprise/aeboilerplate), a full-stack React/Redux/Node/Typescript web project starter that made development easier, clean and customizable. In addition, other important aspects like deployment and testing were ready to use out of the box.
 
 ![Screenshot](./screenshot.png)
 
 ## Project Structure
 
-Most of the architecture was inherited from AEboilerplate with a few additions. The application is divided in two independent applications. The **api**, which represents the back-end built on top of NodeJs, Express and PostgreSQL database. And the **client**, a front-end application generated using `create-react-app`.
+Most of the architecture was inherited from [AEboilerplate](https://github.com/agencyenterprise/aeboilerplate/blob/master/docs/documentation.md) with a few additions. The application is divided in two independent applications. The **api**, which represents the back-end built on top of NodeJs, Express and PostgreSQL database. And the **client**, a front-end application generated using `create-react-app`.
 
 Here's a list describing each technology used by each application:
 
@@ -43,9 +43,16 @@ All code related to Chess 95 application is scoped in a `/chess` folder. Here's 
 
 ## Contributing
 
-Disclaimer to AEBoilerplate docs and link to CONTRIBUTING.md
+**Note**: Any interaction with the Chess 95 project is subject to our Code of Conduct.
+
+Chess 95 is a open-source project that welcomes contributions from anyone. If you're interested in helping out, please read the [contribution guidelines](https://github.com/victorfeijo/chess95/blob/master/docs/CONTRIBUTING.md) to get started.
+
+As this project was bootstraped by [AEBoilerplate](https://github.com/agencyenterprise/aeboilerplate), the contribution guidelines are basically a short version from the full documentation which could be found at this [link](https://github.com/agencyenterprise/aeboilerplate/blob/master/docs/documentation.md).
 
 ## Futher working
 
-[] Setup circle-ci
-[] Add more typescript features to components and functions
+You can find a simple kanban board at the "Projects" section that shows done tasks and futher work that I consider important to be done. Here's the [link](https://github.com/victorfeijo/chess95/projects/1) to the board, feel free to add more tasks and open a issue so we can discuss more about.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/victorfeijo/chess95/blob/master/LICENCE.md) file for details
