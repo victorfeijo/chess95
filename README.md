@@ -43,7 +43,7 @@ All code related to Chess 95 application is scoped in a `/chess` folder. Here's 
 
 ## Contributing
 
-**Note**: Any interaction with the Chess 95 project is subject to our Code of Conduct.
+**Note**: Any interaction with the Chess 95 project is subject to our [Code of Conduct](https://github.com/victorfeijo/chess95/blob/master/CODE_OF_CONDUCT.md).
 
 Chess 95 is a open-source project that welcomes contributions from anyone. If you're interested in helping out, please read the [contribution guidelines](https://github.com/victorfeijo/chess95/blob/master/docs/CONTRIBUTING.md) to get started.
 
