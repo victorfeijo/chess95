@@ -49,7 +49,7 @@ Chess 95 is a open-source project that welcomes contributions from anyone. If yo
 
 As this project was bootstraped by [AEBoilerplate](https://github.com/agencyenterprise/aeboilerplate), the contribution guidelines are basically a short version from the full documentation which could be found at this [link](https://github.com/agencyenterprise/aeboilerplate/blob/master/docs/documentation.md).
 
-## Futher working
+## Futher work
 
 You can find a simple kanban board at the "Projects" section that shows done tasks and futher work that I consider important to be done. Here's the [link](https://github.com/victorfeijo/chess95/projects/1) to the board, feel free to add more tasks and open a issue so we can discuss more about.
 
