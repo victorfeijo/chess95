@@ -20,7 +20,7 @@ Here's a list describing each technology used by each application:
   - [Redux](https://github.com/reduxjs/redux) using the [ducks modular approach](https://github.com/erikras/ducks-modular-redux) for state management.
   - [React Router 4](https://reacttraining.com/react-router/core/guides/philosophy) for routing. \* [Jest](https://jestjs.io/) and [Enzyme](https://github.com/airbnb/enzyme) for testing.
   - [Reselect](https://github.com/reduxjs/reselect) as a simple redux state selector library. Selectors can compute derived data (allowing store to be minimal as possible), efficient using function memoize and composable (a selector can use other selector as a input). Selectors tend to be easy to test because they are pure functions.
-  - [React95](https://github.com/arturbier/React95) for UI components inspired by Windows 95 styles.
+  - [React95](https://github.com/arturbien/React95) for UI components inspired by Windows 95 styles.
 - API
   - [Express](https://expressjs.com/) for routing.
   - [Postgres](https://www.postgresql.org/about/) database and [Knex](https://knexjs.org/) for query building. [Migrations](https://knexjs.org/#Migrations-CLI) and [seeds](https://knexjs.org/#Seeds-CLI) are included. \* [Jest](https://jestjs.io/) for testing.
