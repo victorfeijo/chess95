@@ -61,7 +61,7 @@
   },
   "dependencies": {
     "@types/node": "^8.10.29",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "rimraf": "^2.6.2",
     "ts-node": "^7.0.1",
     "typescript": "^3.0.3"
